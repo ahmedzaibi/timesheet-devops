@@ -21,7 +21,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: zaibiahmed/timesheet-devops:latest  # Corrected image name
+    image: zaibiahmed/alpine:1.0.0  # Corrected image name
     build: .  # Ensure Dockerfile is in this directory
     restart: on-failure
     ports:
