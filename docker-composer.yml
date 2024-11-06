@@ -5,17 +5,19 @@ services:
     image: mysql:5.7
     restart: unless-stopped
     environment:
-      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ROOT_PASSWORD=your-secure-password
       - MYSQL_DATABASE=timesheet-devops-db
     ports:
       - 3306:3306
     volumes:
       - db:/var/lib/mysql
+
   app-timesheet:
     depends_on:
       - mysqldb
     image: zaibiahmed/timesheet-devops:1.0.0
-    #build : ./
+    # Uncomment if you want to build the image locally
+    # build: ./
     restart: on-failure
     ports:
       - 8082:8082
@@ -31,4 +33,4 @@ services:
     tty: true
 
 volumes:
-  db :
+  db:
